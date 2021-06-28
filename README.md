@@ -21,8 +21,11 @@ The following assumptions have been made and decisions/designs are based on that
 
 ### If it were a production solution
 1. Local or distrbuted caching may be required for performance
-2. Circuit breakers and 
-3. 
+2. Circuit breakers would be applied for categorised feature switching off
+3. Monitoring and alerting
+4. Performance tests would be added
+5. Smoke tests to validate live production environment
+6. A potential framework for Authentication may have been implemented
 
 ## Installation Prerequisites
 The solution is written in C# using .NET Core 3.1 due to the Long Term Support (LTS) option. Once another LTS solution is available it will be upgraded.
