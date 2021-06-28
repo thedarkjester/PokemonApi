@@ -4,7 +4,7 @@ using Pokemon.ApiModels;
 using Pokemon.Controllers;
 using System.Threading.Tasks;
 
-namespace Pokemon.Tests.Unit
+namespace Pokemon.Tests.Unit.Controllers
 {
     public class HealthCheckControllerTests
     {
@@ -22,8 +22,8 @@ namespace Pokemon.Tests.Unit
             var response = await _healthCheckController.Get();
             Assert.IsAssignableFrom<ActionResult<HealthCheckResponse>>(response);
 
-            var result3 = (ObjectResult)response.Result;
-            var healthCheckResponse = result3.Value as HealthCheckResponse;
+            var result = (ObjectResult)response.Result;
+            var healthCheckResponse = result.Value as HealthCheckResponse;
             Assert.IsNotNull(healthCheckResponse, "Healthcheck should not be null");
             Assert.True(healthCheckResponse.IsHealthy, "The service should be healthy");
             Assert.IsNull(healthCheckResponse.HealthCheckErrors, "The error collection should be null");

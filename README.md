@@ -28,7 +28,7 @@ The following assumptions have been made and decisions/designs are based on that
    
 
 ### If it were a production solution
-1. Local or distrbuted caching may be required for performance
+1. Local or distributed caching may be required for performance
 2. Circuit breakers would be applied for categorised feature switching off
 3. Monitoring and alerting
 4. Performance tests would be added
@@ -37,7 +37,7 @@ The following assumptions have been made and decisions/designs are based on that
 7. The deployment process would use the HealthCheck endpoint before switching
 8. A green/blue deployment strategy may be used
 9. Containerisation may be used as well
-10. Logging would include a correlation/sessionId to better track requests 
+10. Logging would include a correlationId/sessionId to better track requests 
 
 ## Installation Prerequisites
 The solution is written in C# using .NET Core 3.1 due to the Long Term Support (LTS) option. Once another LTS solution is available it will be upgraded.
@@ -45,7 +45,7 @@ The solution is written in C# using .NET Core 3.1 due to the Long Term Support (
 This means you will require a supported framework and Software Development Kit (SDK) to code for it and run it locally.
 
 1. Install the SDK and Framework from [Microsoft download site](https://dotnet.microsoft.com/download/dotnet/3.1)
-2. To confirm this is working open either command prompt (Windows key/start + R, type in CMD or Powershell). Once loaded type in `dotnet --version`. This should show at least `3.1`. Note: if you have a higher version installed, it will still compile/run.
+2. To confirm this is working open either command prompt (Windows key/start + R, type in CMD or PowerShell). Once loaded type in `dotnet --version`. This should show at least `3.1`. Note: if you have a higher version installed, it will still compile/run.
 3. A tool to download/checkout this GitHub Repository e.g. [Git](https://git-scm.com/downloads) - some Integrated Development Environments (IDEs) have built in tools.
 Note: An understanding of how to use git is not required - an alternative is to download the solution compressed
 4. An IDE such as Visual Studio, or even Visual Studio Code is required to edit/modify code. 
@@ -54,7 +54,7 @@ Note: An understanding of how to use git is not required - an alternative is to 
 
 ## Building
 1. Make sure you have cloned the repository
-2. Open Powershell or your preferred command line utility (could also be the built in one in Visual Studio Code)
+2. Open PowerShell or your preferred command line utility (could also be the built in one in Visual Studio Code)
 3. Navigate into the folder where the `.sln` file is (root folder)
 4. Type in `dotnet build` by default this is configured for `Debug` to compile/build for `Release` use `dotnet build  --configuration Release`
 5. This should compile to a folder `\Pokemon\src\Pokemon\bin\Debug\netcoreapp3.1` from the current folder.

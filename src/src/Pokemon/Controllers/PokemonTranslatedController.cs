@@ -9,27 +9,26 @@ namespace Pokemon.Controllers
 {
     [ApiController]
     [Route("pokemon")]
-    public class PokemonController : ControllerBase
+    public class PokemonTranslatedController : ControllerBase
     {
-        private readonly IPokemonLookupProcessor _pokemonLookupProcessor;
+        private readonly IPokemonTranslationOrchestator _pokemonTranslationOrchestator;
 
-        public PokemonController(IPokemonLookupProcessor pokemonLookupProcessor)
+        public PokemonTranslatedController(IPokemonTranslationOrchestator pokemonTranslationOrchestator)
         {
-            _pokemonLookupProcessor = pokemonLookupProcessor;
+            _pokemonTranslationOrchestator = pokemonTranslationOrchestator;
         }
 
         [HttpGet]
-        [Route("{pokemonName}")]
+        [Route("translated/{pokemonName}")]
         public async Task<ActionResult<PokemonOverview>> Get([FromRoute] string pokemonName)
         {
             //ideally at this point the name has been sanitised in the pipeline (no weird redirects/javascript etc)
             //I would add that in a production environment
             int responseStatusCode = (int)HttpStatusCode.OK;
 
-            var pokemonLookup = await _pokemonLookupProcessor.Process(pokemonName);
+            var pokemonLookup = await _pokemonTranslationOrchestator.Orchestrate(pokemonName);
 
             //ideally there should be a mapper for this
-
             if(pokemonLookup == null)
             {
                 return await Task.FromResult(StatusCode((int)HttpStatusCode.NotFound));

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Pokemon.Services.PokeApi;
 using Pokemon.Services.PokeApi.Models;
 using System.Net.Http;
 using System.Text.Json;
@@ -7,14 +6,10 @@ using System.Threading.Tasks;
 using System.Linq;
 using System;
 using Pokemon.Domain.Models;
+using Pokemon.Domain.Services;
 
 namespace Pokemon.Services
 {
-    public interface IPokemonLookupProcessor
-    {
-        Task<PokemonEntity> Process(string pokemonName);
-    }
-
     public class PokemonLookupProcessor : IPokemonLookupProcessor
     {
         private readonly ILogger<PokemonLookupProcessor> _logger;
@@ -83,6 +78,4 @@ namespace Pokemon.Services
             return speciesResponse;
         }
     }
-
-
 }

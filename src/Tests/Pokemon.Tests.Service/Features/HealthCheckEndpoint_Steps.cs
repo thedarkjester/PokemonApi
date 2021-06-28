@@ -12,7 +12,7 @@ namespace Pokemon.Tests.Service.Features
 {
     public partial class HealthCheckEndpoint : FeatureFixture
     {
-        private JsonSerializerOptions serializationOptions = new JsonSerializerOptions
+        private readonly JsonSerializerOptions serializationOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true
