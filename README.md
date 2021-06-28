@@ -14,10 +14,18 @@ The following assumptions have been made and decisions/designs are based on that
 
 ### Design notes
 1. This is a design vs. a full scale production ready solution.
+
 2. Certain functions have not been implemented due to a) time, b) it would be over-engineering and c) Agile practice
+
 3. A single language with the first found description is used
+
 4. A simplified HTTP client was used vs. a third party library for a variety of reasons including; not relying on third party code and support, a smaller memory footprint, only using functions that are needed, and better logging/metric capability can be added.
+
 5. See Project breakdown [Project breakdown](docs/ProjectBreakDown.md)
+
+6. Certain mappers have been left off, but in principle should be there to keep responsibilities clean
+
+   
 
 ### If it were a production solution
 1. Local or distrbuted caching may be required for performance
@@ -26,6 +34,10 @@ The following assumptions have been made and decisions/designs are based on that
 4. Performance tests would be added
 5. Smoke tests to validate live production environment
 6. A potential framework for Authentication may have been implemented
+7. The deployment process would use the HealthCheck endpoint before switching
+8. A green/blue deployment strategy may be used
+9. Containerisation may be used as well
+10. Logging would include a correlation/sessionId to better track requests 
 
 ## Installation Prerequisites
 The solution is written in C# using .NET Core 3.1 due to the Long Term Support (LTS) option. Once another LTS solution is available it will be upgraded.
