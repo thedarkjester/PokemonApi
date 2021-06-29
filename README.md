@@ -2,7 +2,9 @@
 An experiment in collecting and translating Pokemon data.
 
 ## Overview
-This repository is to 
+This repository is to highlight how to configure an API to retrieve Pokemon data with ways to test it.
+
+The full test suite is not complete, but the main scaffolding and method of testing is there. 
 
 ## Assumptions and design
 The following assumptions have been made and decisions/designs are based on that.
@@ -21,7 +23,7 @@ The following assumptions have been made and decisions/designs are based on that
 
 4. A simplified HTTP client was used vs. a third party library for a variety of reasons including; not relying on third party code and support, a smaller memory footprint, only using functions that are needed, and better logging/metric capability can be added.
 
-5. See Project breakdown [Project breakdown](docs/ProjectBreakDown.md)
+5. See Project breakdown [Project breakdown](docs/ProjectBreakdown.md)
 
 6. Certain mappers have been left off, but in principle should be there to keep responsibilities clean
 
