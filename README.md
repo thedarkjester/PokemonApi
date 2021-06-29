@@ -40,6 +40,7 @@ The following assumptions have been made and decisions/designs are based on that
 8. A green/blue deployment strategy may be used
 9. Containerisation may be used as well
 10. Logging would include a correlationId/sessionId to better track requests 
+11. API Pipeline behaviour for logging requests, handling exceptions
 
 ## Installation Prerequisites
 The solution is written in C# using .NET Core 3.1 due to the Long Term Support (LTS) option. Once another LTS solution is available it will be upgraded.
