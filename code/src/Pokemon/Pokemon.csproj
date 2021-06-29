@@ -16,5 +16,15 @@
     <ProjectReference Include="..\Pokemon.Services\Pokemon.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings - Copy.servicetest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>appsettings.servicetest.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings.servicetest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 
 </Project>

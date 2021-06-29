@@ -32,11 +32,14 @@ namespace Pokemon.Tests.Service
 
         protected override void OnSetUp()
         {
+            WireMockSetup.StartServer();
             TestServer.Initialize();
         }
 
         protected override void OnTearDown()
         {
+            WireMockSetup.WireMockServer.Stop();
+            WireMockSetup.WireMockServer.Dispose();
             TestServer.Dispose();
         }
     }

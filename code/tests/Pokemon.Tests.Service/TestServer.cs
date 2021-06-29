@@ -1,8 +1,7 @@
-﻿using Pokemon.Tests.Service;
-using NUnit.Framework;
-using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net.Http;
 using System;
+using Microsoft.Extensions.Configuration;
 
 namespace Pokemon.Tests.Service
 {
@@ -17,7 +16,18 @@ namespace Pokemon.Tests.Service
 
             public static void Initialize()
             {
-                Instance = new WebApplicationFactory<Startup>();
+                Instance = new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
+                {
+                builder.ConfigureAppConfiguration((hostingContext, config) =>
+                    {
+                        config.AddJsonFile("appsettings.json");
+                        config.AddJsonFile("appsettings.Development.json");
+                        config.AddJsonFile("appsettings.servicetest.json");
+                    });
+                });
+
+   
+
                 Instance.CreateDefaultClient();
             }
 
