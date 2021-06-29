@@ -27,13 +27,15 @@ namespace Pokemon
         {
             if (env.IsDevelopment())
             {
-                app.UseSwagger();
                 app.UseDeveloperExceptionPage();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pokemon API");
-                });
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pokemon API");
+            });
 
             app.UseHttpsRedirection(); // we don't like http only ;)
 

@@ -12,7 +12,7 @@ The following assumptions have been made and decisions/designs are based on that
 ### Reader assumptions
 1. The reader has some programming knowledge
 2. The reader has used git
-3. The user has or is able to get administrator access to the machine this is being run/tested/coded on.
+3. The reader has or is able to get administrator access to the machine this is being run/tested/coded on.
 
 ### Design notes
 1. This is a design vs. a full scale production ready solution.
@@ -50,19 +50,33 @@ This means you will require a supported framework and Software Development Kit (
 2. To confirm this is working open either command prompt (Windows key/start + R, type in CMD or PowerShell). Once loaded type in `dotnet --version`. This should show at least `3.1`. Note: if you have a higher version installed, it will still compile/run.
 3. A tool to download/checkout this GitHub Repository e.g. [Git](https://git-scm.com/downloads) - some Integrated Development Environments (IDEs) have built in tools.
 Note: An understanding of how to use git is not required - an alternative is to download the solution compressed
-4. An IDE such as Visual Studio, or even Visual Studio Code is required to edit/modify code. 
+4. An IDE such as [Visual Studio, or even Visual Studio Code](https://visualstudio.microsoft.com/downloads/) is required to edit/modify code. 
 5. You may require local/machine Administrator access to allow API port listeners.
 
 
 ## Building
 1. Make sure you have cloned the repository
 2. Open PowerShell or your preferred command line utility (could also be the built in one in Visual Studio Code)
-3. Navigate into the folder where the `.sln` file is (root folder)
+3. Navigate into the folder where the `.sln` file is (`code` folder)
 4. Type in `dotnet build` by default this is configured for `Debug` to compile/build for `Release` use `dotnet build  --configuration Release`
 5. This should compile to a folder `\Pokemon\src\Pokemon\bin\Debug\netcoreapp3.1` from the current folder.
 
 ## Running
 
+1. After building, simply navigate to `code\src\Pokemon\bin\Debug\netcoreapp3.1`and double click the `.exe` file
+2. Open a browser to `https://localhost:5001/swagger/index.html`
+3. Try `latias` for a legendary Yoda translation
+4. Try `picachu` for a shakespeaker translation
+
 ## Testing
 
+In the root folder simply type `dotnet test`, this should restore all packages and run the two types of tests:
+
+1. Unit tests (very simple) - these would be covered across all areas more explicitly
+2. Service tests - blackbox testing with external dependencies (APIs) mocked
+   1. Once run, in the `code\tests\Pokemon.Tests.Service\bin\Debug\netcoreapp3.1\Reports`folder there should be a reporting artifact for the service tests from LightBDD.
+3. Manual testing can be done by using httpie or swagger which should open when running the project from the folder`code\src\Pokemon\bin\Debug\netcoreapp3.1` - simply double click the `Pokemon.exe`
+
 ## Contributing
+
+1. The project is open for PRs
